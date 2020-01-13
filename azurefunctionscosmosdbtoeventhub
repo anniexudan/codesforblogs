@@ -1,0 +1,22 @@
+//#r "Microsoft.Azure.Documents.Client"
+#r "Microsoft.Azure.DocumentDB.Core" 
+using Microsoft.Azure.Documents;
+using System.Collections.Generic;
+using System;
+/*
+public static async Task Run(IReadOnlyList<Document> input, TraceWriter log)
+{
+    log.Verbose("Document count " + input.Count);
+	log.Verbose("First document Id " + input[0].Id);
+}
+*/
+public static string Run(IReadOnlyList<Document> input,  ILogger log)
+{
+    if (input != null && input.Count > 0)
+    {
+        log.LogInformation("Documents modified " + input.Count);
+        log.LogInformation("First document Id " + input[0]);               
+    }
+    
+ return input[0].ToString();
+}
